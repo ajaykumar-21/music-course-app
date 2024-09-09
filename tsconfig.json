@@ -1,26 +1,31 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
+    "lib": ["dom", "dom.iterable", "esnext"], 
+    "allowJs": true, 
+    "skipLibCheck": true, 
+    "strict": true, 
+    "noEmit": true, 
+    "esModuleInterop": true, 
+    "module": "esnext", 
+    "moduleResolution": "bundler", 
+    "resolveJsonModule": true, 
+    "isolatedModules": true, // Ensures that each file can be transpiled independently
+    "jsx": "preserve", // Preserves JSX (Next.js handles this internally)
+    "incremental": true, // Enables incremental compilation for faster rebuilds
     "plugins": [
       {
-        "name": "next"
+        "name": "next" // Next.js-specific TypeScript plugin
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"] // Path aliasing for easy imports from src/
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts", // Includes Next.js environment type definitions
+    "**/*.ts", // All TypeScript files
+    "**/*.tsx", // All TypeScript + JSX files
+    ".next/types/**/*.ts" // Includes Next.js generated types
+  ],
+  "exclude": ["node_modules"] // Excludes node_modules to speed up the build process
 }
